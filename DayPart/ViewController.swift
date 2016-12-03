@@ -27,23 +27,7 @@ class ViewController: UIViewController {
     }
     
     func updateDuration(){
-        var duration = endingDatePicker.date.asTodayDate()
-            .timeIntervalSince(beginingDatePicker.date.asTodayDate())
-        
-        if duration < 0 {
-            duration = endingDatePicker.date.asTodayDate().addingTimeInterval(86400)
-                .timeIntervalSince(beginingDatePicker.date.asTodayDate())
-        }
-        
-        let hours = Int(duration / 3600)
-        let minutes = Int(duration.truncatingRemainder(dividingBy: 3600)/60)
-        
-        durationLabel.text = (hours == 0 ?"":(String(hours) + "h ")) +
-             (minutes == 0 ?"":(String(minutes) + "m"))
-        if hours == 0 && minutes == 0 {
-            durationLabel.text = "0m"
-            
-        }
+        durationLabel.text = countInterval(endingDate: endingDatePicker.date.asTodayDate(), beginingDate: beginingDatePicker.date.asTodayDate())
     }
     override func viewDidLoad() {
         super.viewDidLoad()
