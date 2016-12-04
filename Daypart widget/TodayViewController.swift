@@ -36,33 +36,32 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       updateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateDayPart), userInfo: nil, repeats: true);
+        updateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateDayPart), userInfo: nil, repeats: true);
         updateTimer!.fire()
         updateDayPart()
-
+        userDef?.set(true, forKey: "widgetInstalled")
     }
     override func viewWillDisappear(_ animated: Bool) {
         updateTimer!.invalidate()
     }
 
-    @IBAction func widgetPressed(_ sender: Any) {
+//    func widgetPressed(_ sender: Any) {
+//        let url: URL = URL(string:"DayPart://")!
+//        self.extensionContext?.open(url, completionHandler: nil)
+//    }
+    
+    @IBAction func widgetPressed(_ sender: UIButton) {
         let url: URL = URL(string:"DayPart://")!
         self.extensionContext?.open(url, completionHandler: nil)
     }
-    
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         updateDayPart()
         completionHandler(NCUpdateResult.newData)
     }
     
     func countDayPart()-> Double {
-        let calendar = Calendar(identifier: .gregorian)
-        
-        let defaultBegining = calendar.date(bySettingHour: 7, minute: 30, second: 0, of: Date())
-        let defaultEnding = calendar.date(bySettingHour: 23, minute: 30, second: 0, of: Date())
-        
-        beginingTime = (userDef?.object(forKey: "beginingTime") as? Date) ?? defaultBegining!
-        endingTime = (userDef?.object(forKey: "endingTime") as? Date) ?? defaultEnding!
+        beginingTime = (userDef?.object(forKey: "beginingTime") as? Date)
+        endingTime = (userDef?.object(forKey: "endingTime") as? Date)
         
         beginingTime = beginingTime.asTodayDate()
         endingTime = endingTime.asTodayDate()
@@ -96,6 +95,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 dayPartLabel.isHidden = true
             
             progressView.trackTintColor = UIColor.clear
+            progressView.progressTintColor = UIColor.clear
         } else {
             labelText = String(dayPart) + "%"
             willStartLabel.isHidden = true
