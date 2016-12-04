@@ -16,14 +16,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var dayPartLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     
+    @IBOutlet weak var willStartLabel: UILabel!
+    @IBOutlet weak var willStartTime: UILabel!
+    
     var beginingTime: Date!
     var endingTime: Date!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 60)
-        progressView.trackTintColor = UIColor.clear;
-
+        progressView.trackTintColor = UIColor.clear
+        progressView.tintColor = UIColor.clear
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,12 +38,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewWillAppear(animated)
        updateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateDayPart), userInfo: nil, repeats: true);
         updateTimer!.fire()
+        updateDayPart()
 
     }
     override func viewWillDisappear(_ animated: Bool) {
         updateTimer!.invalidate()
     }
 
+    @IBAction func widgetPressed(_ sender: Any) {
+        let url: URL = URL(string:"DayPart://")!
+        self.extensionContext?.open(url, completionHandler: nil)
+    }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         updateDayPart()
@@ -78,14 +86,23 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func updateDayPart(){
         let dayPart = countDayPart()
+        let progressColor = UIColor(hue: CGFloat((170.0/360.0) * (1.0 - (dayPart / 100.0))), saturation: 0.46, brightness: 0.85, alpha: 1.0)
+
         var labelText = "WTF"
         if dayPart <= 0.0 || dayPart >= 100.0 {
-            labelText = "Your day will start in " +
-                countInterval(endingDate: beginingTime, beginingDate: Date())
+               willStartTime.text = countInterval(endingDate: beginingTime, beginingDate: Date())
+                willStartLabel.isHidden = false
+                willStartTime.isHidden = false
+                dayPartLabel.isHidden = true
+            
+            progressView.trackTintColor = UIColor.clear
         } else {
             labelText = String(dayPart) + "%"
+            willStartLabel.isHidden = true
+            willStartTime.isHidden = true
+            dayPartLabel.isHidden = false
+            progressView.progressTintColor = progressColor
         }
-        
         dayPartLabel.text = labelText
         progressView.setProgress(Float(dayPart / 100), animated: false)
     }

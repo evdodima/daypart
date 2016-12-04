@@ -15,6 +15,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     let userDef = UserDefaults(suiteName: "group.dayPart")
 
+    @IBAction func installWidgetButtonPressed(_ sender: UIButton) {
+        let settingsUrl = URL(string:UIApplicationOpenSettingsURLString)
+        UIApplication.shared.open(settingsUrl!, completionHandler: { (success) in
+            print("Settings opened: \(success)") // Prints true
+        })
+    }
     @IBAction func beginingValueChange(_ sender: Any) {
         let beginingDate = beginingDatePicker.date
         userDef?.set(beginingDate, forKey: "beginingTime")
@@ -31,8 +37,8 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        beginingDatePicker.minuteInterval = 15
-        endingDatePicker.minuteInterval = 15
+        beginingDatePicker.minuteInterval = 1
+        endingDatePicker.minuteInterval = 1
         updateDuration()
         // Do any additional setup after loading the view, typically from a nib.
     }

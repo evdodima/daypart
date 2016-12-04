@@ -19,11 +19,12 @@ func countInterval(endingDate: Date, beginingDate:Date) -> String{
     
     let hours = Int(duration / 3600)
     let minutes = Int(duration.truncatingRemainder(dividingBy: 3600)/60)
+    let seconds = Int(duration.truncatingRemainder(dividingBy: 3600).truncatingRemainder(dividingBy: 60))
     
     result = (hours == 0 ?"":(String(hours) + "h ")) +
         (minutes == 0 ?"":(String(minutes) + "m"))
     if hours == 0 && minutes == 0 {
-        result = "0m"
+        result = String(seconds) + "s"
     }
     return result
 }
