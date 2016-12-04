@@ -39,10 +39,10 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="RZ7-Jm-8u1">
-                                <rect key="frame" x="0.0" y="344" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="345.5" width="320" height="214.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Ending" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8E-lF-sti">
-                                        <rect key="frame" x="0.0" y="95" width="130" height="26.5"/>
+                                        <rect key="frame" x="0.0" y="94" width="130" height="26.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="130" id="Yt4-CE-kzi"/>
                                         </constraints>
@@ -51,7 +51,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWU-ug-dVI">
-                                        <rect key="frame" x="152" y="0.0" width="168" height="216"/>
+                                        <rect key="frame" x="152" y="0.0" width="168" height="214.5"/>
                                         <date key="date" timeIntervalSinceReferenceDate="502313400.91897798">
                                             <!--2016-12-01 19:30:00 +0000-->
                                         </date>
@@ -101,19 +101,19 @@
                                 <color key="backgroundColor" red="0.80385929346084595" green="0.80395656824111938" blue="0.80382627248764038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoh-j9-aoa">
-                                <rect key="frame" x="0.0" y="340" width="320" height="1"/>
+                                <rect key="frame" x="0.0" y="341.5" width="320" height="1"/>
                                 <color key="backgroundColor" red="0.80385929346084595" green="0.80395656824111938" blue="0.80382627248764038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="mEa-ui-y8u">
-                                <rect key="frame" x="83.5" y="283" width="153.5" height="49"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <rect key="frame" x="82" y="283" width="157" height="50.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <color key="textColor" red="0.43200011500000002" green="0.5619184948" blue="0.86518480330000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5z-8d-88S">
                                 <rect key="frame" x="0.0" y="65" width="320" height="17"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Install the DayPart widget">
+                                    <fragment content="And install the DayPart widget">
                                         <attributes>
                                             <color key="NSColor" red="0.57416242361068726" green="0.38760245096126295" blue="0.39188633822135094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="14" name=".AppleSystemUIFont"/>

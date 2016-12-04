@@ -60,8 +60,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func countDayPart()-> Double {
-        beginingTime = (userDef?.object(forKey: "beginingTime") as? Date)
-        endingTime = (userDef?.object(forKey: "endingTime") as? Date)
+        let calendar = Calendar(identifier: .gregorian)
+        let defaultBegining = calendar.date(bySettingHour: 6, minute: 30, second: 0, of: Date())
+        let defaultEnding = calendar.date(bySettingHour: 22, minute: 30, second: 0, of: Date())
+        
+        beginingTime = (userDef?.object(forKey: "beginingTime") as? Date) ?? defaultBegining!
+        endingTime = (userDef?.object(forKey: "endingTime") as? Date) ?? defaultEnding!
         
         beginingTime = beginingTime.asTodayDate()
         endingTime = endingTime.asTodayDate()
