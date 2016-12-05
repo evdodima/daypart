@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EB679DF1DF5C8B50035D8E9 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB679DE1DF5C8B50035D8E9 /* IntroViewController.swift */; };
 		8ECEF2A91DEED99B00CF1BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECEF2A81DEED99B00CF1BB3 /* AppDelegate.swift */; };
 		8ECEF2AB1DEED99B00CF1BB3 /* DayPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECEF2AA1DEED99B00CF1BB3 /* DayPartViewController.swift */; };
 		8ECEF2AE1DEED99B00CF1BB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECEF2AC1DEED99B00CF1BB3 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8EB679DE1DF5C8B50035D8E9 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		8ECEF2A51DEED99B00CF1BB3 /* DayPart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayPart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ECEF2A81DEED99B00CF1BB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ECEF2AA1DEED99B00CF1BB3 /* DayPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPartViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				8ECEF2B11DEED99B00CF1BB3 /* LaunchScreen.storyboard */,
 				8ECEF2B41DEED99B00CF1BB3 /* Info.plist */,
 				8ECEF2D21DF01DAB00CF1BB3 /* Utils.swift */,
+				8EB679DE1DF5C8B50035D8E9 /* IntroViewController.swift */,
 			);
 			path = DayPart;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				8ECEF2AB1DEED99B00CF1BB3 /* DayPartViewController.swift in Sources */,
 				8ECEF2A91DEED99B00CF1BB3 /* AppDelegate.swift in Sources */,
 				8ECEF2D31DF01DAB00CF1BB3 /* Utils.swift in Sources */,
+				8EB679DF1DF5C8B50035D8E9 /* IntroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +412,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = EvDm.DayPart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -424,7 +428,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = EvDm.DayPart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -439,7 +443,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -454,7 +458,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

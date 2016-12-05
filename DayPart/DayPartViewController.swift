@@ -10,11 +10,9 @@ import UIKit
 
 class DayPartViewController: UIViewController {
 
-    @IBOutlet weak var installReminder: UILabel!
     @IBOutlet weak var beginingDatePicker: UIDatePicker!
     @IBOutlet weak var endingDatePicker: UIDatePicker!
     @IBOutlet weak var durationLabel: UILabel!
-    let userDef = UserDefaults(suiteName: "group.dayPart")
 
     @IBAction func beginingValueChange(_ sender: Any) {
         let beginingDate = beginingDatePicker.date
@@ -42,11 +40,20 @@ class DayPartViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         print("willAppear")
         beginingDatePicker.setDate(userDef?.object(forKey: "beginingTime") as! Date, animated: animated)
         endingDatePicker.setDate(userDef?.object(forKey: "endingTime") as! Date, animated: animated)
         updateDuration()
-        installReminder.isHidden = (userDef?.object(forKey: "widgetInstalled") != nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if userDef?.object(forKey: "IntroAppeared") == nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "intro")
+            self.present(controller, animated: true, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {

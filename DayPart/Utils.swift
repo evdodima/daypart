@@ -8,6 +8,8 @@
 
 import Foundation
 
+let userDef = UserDefaults(suiteName: "group.dayPart")
+
 func countInterval(endingDate: Date, beginingDate:Date) -> String{
     var duration = endingDate.timeIntervalSince(beginingDate)
     

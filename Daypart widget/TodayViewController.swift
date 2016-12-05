@@ -24,7 +24,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        progressView.transform = progressView.transform.scaledBy(x: 1, y: 60)
+        progressView.transform = progressView.transform.scaledBy(x: 1, y: self.view.frame.height/2)
         progressView.trackTintColor = UIColor.clear
         progressView.tintColor = UIColor.clear
     }
@@ -107,7 +107,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             dayPartLabel.isHidden = false
             progressView.progressTintColor = progressColor
         }
-        dayPartLabel.text = labelText
+        dayPartLabel.text = labelText.replacingOccurrences(of: ".0%", with: "%")
         progressView.setProgress(Float(dayPart / 100), animated: false)
     }
     
