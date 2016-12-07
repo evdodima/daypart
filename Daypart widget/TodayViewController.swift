@@ -90,6 +90,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func updateDayPart(){
         let dayPart = countDayPart()
         let progressColor = UIColor(hue: CGFloat((170.0/360.0) * (1.0 - (dayPart / 100.0))), saturation: 0.46, brightness: 0.85, alpha: 1.0)
+        
 
         var labelText = "WTF"
         if dayPart <= 0.0 || dayPart >= 100.0 {

@@ -25,6 +25,9 @@ class DayPartViewController: UIViewController {
         updateDuration()
     }
     
+    @IBAction func introPressed(_ sender: UIButton) {
+        showIntro()
+    }
     func updateDuration(){
         durationLabel.text = countInterval(endingDate: endingDatePicker.date.asTodayDate(), beginingDate: beginingDatePicker.date.asTodayDate())
     }
@@ -50,10 +53,14 @@ class DayPartViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if userDef?.object(forKey: "IntroAppeared") == nil {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "intro")
-            self.present(controller, animated: true, completion: nil)
+            showIntro()
         }
+    }
+    
+    func showIntro(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "intro")
+        self.present(controller, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

@@ -33,13 +33,13 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "icon_120.png",
+      "filename" : "ps_icon_120_light.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "icon_180.png",
+      "filename" : "ps_icon_180_light.png",
       "scale" : "3x"
     },
     {
