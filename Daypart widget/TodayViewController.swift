@@ -59,42 +59,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         completionHandler(NCUpdateResult.newData)
     }
     
-    func countDayPart()-> Double {
-        let calendar = Calendar(identifier: .gregorian)
-        let defaultBegining = calendar.date(bySettingHour: 6, minute: 30, second: 0, of: Date())
-        let defaultEnding = calendar.date(bySettingHour: 22, minute: 30, second: 0, of: Date())
-        
-        beginingTime = (userDef?.object(forKey: "beginingTime") as? Date) ?? defaultBegining!
-        endingTime = (userDef?.object(forKey: "endingTime") as? Date) ?? defaultEnding!
-        
-        beginingTime = beginingTime.asTodayDate()
-        endingTime = endingTime.asTodayDate()
-        
-        
-        var allDay = endingTime.timeIntervalSince(beginingTime)
-        let currentDate = Date()
-        var dayInterval = currentDate.timeIntervalSince(beginingTime)
-
-        if allDay < 0 {
-            allDay += 86400
-            if dayInterval < 0 {
-                dayInterval += 86400
-            }
-        }
-        let dayPartPercent = (Double(dayInterval)/allDay) * 100
-        let roundedDayPart = (dayPartPercent * 100).rounded() / 100
-        
-        return roundedDayPart
-    }
-    
     func updateDayPart(){
+        let beginingTime = userDef?.object(forKey: "beginingTime") as! Date
         let dayPart = countDayPart()
-        let progressColor = UIColor(hue: CGFloat((170.0/360.0) * (1.0 - (dayPart / 100.0))), saturation: 0.46, brightness: 0.85, alpha: 1.0)
+        let progressColor = UIColor(hue: CGFloat((170.0/360.0) * (dayPart / 100.0)), saturation: 0.46, brightness: 0.85, alpha: 1.0)
         
 
         var labelText = "WTF"
         if dayPart <= 0.0 || dayPart >= 100.0 {
-               willStartTime.text = countInterval(endingDate: beginingTime, beginingDate: Date())
+               willStartTime.text = countInterval(endingDate: beginingTime.asTodayDate(), beginingDate: Date())
                 willStartLabel.isHidden = false
                 willStartTime.isHidden = false
                 dayPartLabel.isHidden = true

@@ -14,27 +14,24 @@ class DayPartViewController: UIViewController {
     @IBOutlet weak var endingDatePicker: UIDatePicker!
     @IBOutlet weak var durationLabel: UILabel!
 
-    @IBAction func beginingValueChange(_ sender: Any) {
-        let beginingDate = beginingDatePicker.date
-        userDef?.set(beginingDate, forKey: "beginingTime")
+    @IBAction func beginingChanged(_ sender: Any) {
         updateDuration()
     }
-    @IBAction func endingValueChanged(_ sender: Any) {
-        let endingDate = endingDatePicker.date
-        userDef?.set(endingDate, forKey: "endingTime")
+    @IBAction func endingChanged(_ sender: Any) {
         updateDuration()
-    }
-    
-    @IBAction func introPressed(_ sender: UIButton) {
-        showIntro()
     }
     func updateDuration(){
         durationLabel.text = countInterval(endingDate: endingDatePicker.date.asTodayDate(), beginingDate: beginingDatePicker.date.asTodayDate())
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        userDef?.set(beginingDatePicker.date, forKey: "beginingTime")
-        userDef?.set(endingDatePicker.date, forKey: "endingTime")
+        if let _ = userDef?.object(forKey: "beginingTime")
+            , let _ = userDef?.object(forKey: "endingTime")  {
+        }
+        else {
+            userDef?.set(beginingDatePicker.date, forKey: "beginingTime")
+            userDef?.set(endingDatePicker.date, forKey: "endingTime")
+        }
         
         beginingDatePicker.minuteInterval = 1
         endingDatePicker.minuteInterval = 1
@@ -50,19 +47,25 @@ class DayPartViewController: UIViewController {
         updateDuration()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if userDef?.object(forKey: "IntroAppeared") == nil {
-            showIntro()
-        }
-    }
-    
-    func showIntro(){
+    func showDayPart(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "intro")
+        let controller = storyboard.instantiateViewController(withIdentifier: "MainDaypart")
         self.present(controller, animated: true, completion: nil)
     }
 
+    @IBAction func saveTimes(_ sender: UIButton) {
+        let endingDate = endingDatePicker.date
+        userDef?.set(endingDate, forKey: "endingTime")
+        updateDuration()
+        
+        let beginingDate = beginingDatePicker.date
+        userDef?.set(beginingDate, forKey: "beginingTime")
+        updateDuration()
+
+        
+        showDayPart()
+    
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

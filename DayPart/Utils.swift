@@ -7,11 +7,42 @@
 //
 
 import Foundation
+import UIKit
 
 let userDef = UserDefaults(suiteName: "group.dayPart")
 
+
+func countDayPart()-> Double {
+    let calendar = Calendar(identifier: .gregorian)
+    let defaultBegining = calendar.date(bySettingHour: 6, minute: 30, second: 0, of: Date())
+    let defaultEnding = calendar.date(bySettingHour: 22, minute: 30, second: 0, of: Date())
+    
+    var beginingTime = (userDef?.object(forKey: "beginingTime") as? Date) ?? defaultBegining!
+    var endingTime = (userDef?.object(forKey: "endingTime") as? Date) ?? defaultEnding!
+    
+    beginingTime = beginingTime.asTodayDate()
+    endingTime = endingTime.asTodayDate()
+    
+    
+    var allDay = endingTime.timeIntervalSince(beginingTime)
+    let currentDate = Date()
+    var dayInterval = currentDate.timeIntervalSince(beginingTime)
+    
+    if allDay < 0 {
+        allDay += 86400
+        if dayInterval < 0 {
+            dayInterval += 86400
+        }
+    }
+    let dayPartPercent = (1.0 - Double(dayInterval)/allDay) * 100
+    let roundedDayPart = (dayPartPercent * 100).rounded() / 100
+    
+    return roundedDayPart
+}
+
+
 func countInterval(endingDate: Date, beginingDate:Date) -> String{
-    var duration = endingDate.timeIntervalSince(beginingDate)
+    var duration = endingDate.timeIntervalSince(beginingDate) + 1
     
     if duration < 0 {
         duration = endingDate.addingTimeInterval(86400)
@@ -31,6 +62,8 @@ func countInterval(endingDate: Date, beginingDate:Date) -> String{
     return result
 }
 
+
+
 extension Date {
     func asTodayDate() -> Date{
         let cal = Calendar(identifier:.gregorian)
@@ -40,5 +73,11 @@ extension Date {
             return date
         }
         return self.addingTimeInterval(-self.timeIntervalSince(Date()))
+    }
+}
+
+extension NSLayoutConstraint {
+    func constraintWithMultiplier(multiplier: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: self.firstItem, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
     }
 }

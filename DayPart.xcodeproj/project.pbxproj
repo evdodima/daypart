@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E6D21501DF745F70008C037 /* TopAlignedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D214F1DF745F70008C037 /* TopAlignedLabel.swift */; };
-		8EAF2DFF1DF72118009F71B4 /* BottomAlignedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF2DFE1DF72118009F71B4 /* BottomAlignedLabel.swift */; };
 		8EB679DF1DF5C8B50035D8E9 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB679DE1DF5C8B50035D8E9 /* IntroViewController.swift */; };
 		8ECEF2A91DEED99B00CF1BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECEF2A81DEED99B00CF1BB3 /* AppDelegate.swift */; };
 		8ECEF2AB1DEED99B00CF1BB3 /* DayPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECEF2AA1DEED99B00CF1BB3 /* DayPartViewController.swift */; };
@@ -21,6 +19,7 @@
 		8ECEF2CB1DEED9BE00CF1BB3 /* Daypart widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8ECEF2BE1DEED9BE00CF1BB3 /* Daypart widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8ECEF2D31DF01DAB00CF1BB3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECEF2D21DF01DAB00CF1BB3 /* Utils.swift */; };
 		8ECEF2D41DF01FB100CF1BB3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECEF2D21DF01DAB00CF1BB3 /* Utils.swift */; };
+		8EE3862C1DFE8F5900B27D16 /* MainDaypartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE3862B1DFE8F5900B27D16 /* MainDaypartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +47,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8E6D214F1DF745F70008C037 /* TopAlignedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopAlignedLabel.swift; sourceTree = "<group>"; };
-		8EAF2DFE1DF72118009F71B4 /* BottomAlignedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomAlignedLabel.swift; sourceTree = "<group>"; };
 		8EB679DE1DF5C8B50035D8E9 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		8ECEF2A51DEED99B00CF1BB3 /* DayPart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayPart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ECEF2A81DEED99B00CF1BB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +63,7 @@
 		8ECEF2D01DF00D5700CF1BB3 /* DayPart.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DayPart.entitlements; sourceTree = "<group>"; };
 		8ECEF2D11DF00D7400CF1BB3 /* Daypart widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Daypart widget.entitlements"; sourceTree = "<group>"; };
 		8ECEF2D21DF01DAB00CF1BB3 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		8EE3862B1DFE8F5900B27D16 /* MainDaypartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainDaypartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +116,7 @@
 				8ECEF2B41DEED99B00CF1BB3 /* Info.plist */,
 				8ECEF2D21DF01DAB00CF1BB3 /* Utils.swift */,
 				8EB679DE1DF5C8B50035D8E9 /* IntroViewController.swift */,
-				8EAF2DFE1DF72118009F71B4 /* BottomAlignedLabel.swift */,
-				8E6D214F1DF745F70008C037 /* TopAlignedLabel.swift */,
+				8EE3862B1DFE8F5900B27D16 /* MainDaypartViewController.swift */,
 			);
 			path = DayPart;
 			sourceTree = "<group>";
@@ -260,10 +257,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ECEF2AB1DEED99B00CF1BB3 /* DayPartViewController.swift in Sources */,
-				8E6D21501DF745F70008C037 /* TopAlignedLabel.swift in Sources */,
+				8EE3862C1DFE8F5900B27D16 /* MainDaypartViewController.swift in Sources */,
 				8ECEF2A91DEED99B00CF1BB3 /* AppDelegate.swift in Sources */,
 				8ECEF2D31DF01DAB00CF1BB3 /* Utils.swift in Sources */,
-				8EAF2DFF1DF72118009F71B4 /* BottomAlignedLabel.swift in Sources */,
 				8EB679DF1DF5C8B50035D8E9 /* IntroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
