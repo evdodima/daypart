@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E2535261E0053D900E13E7C /* UpgradeToProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2535251E0053D900E13E7C /* UpgradeToProViewController.swift */; };
 		8EB679DF1DF5C8B50035D8E9 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB679DE1DF5C8B50035D8E9 /* IntroViewController.swift */; };
 		8ECEF2A91DEED99B00CF1BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECEF2A81DEED99B00CF1BB3 /* AppDelegate.swift */; };
 		8ECEF2AB1DEED99B00CF1BB3 /* DayPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECEF2AA1DEED99B00CF1BB3 /* DayPartViewController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8E2535251E0053D900E13E7C /* UpgradeToProViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeToProViewController.swift; sourceTree = "<group>"; };
 		8EB679DE1DF5C8B50035D8E9 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		8ECEF2A51DEED99B00CF1BB3 /* DayPart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayPart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ECEF2A81DEED99B00CF1BB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				8ECEF2D21DF01DAB00CF1BB3 /* Utils.swift */,
 				8EB679DE1DF5C8B50035D8E9 /* IntroViewController.swift */,
 				8EE3862B1DFE8F5900B27D16 /* MainDaypartViewController.swift */,
+				8E2535251E0053D900E13E7C /* UpgradeToProViewController.swift */,
 			);
 			path = DayPart;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				8ECEF2AB1DEED99B00CF1BB3 /* DayPartViewController.swift in Sources */,
 				8EE3862C1DFE8F5900B27D16 /* MainDaypartViewController.swift in Sources */,
+				8E2535261E0053D900E13E7C /* UpgradeToProViewController.swift in Sources */,
 				8ECEF2A91DEED99B00CF1BB3 /* AppDelegate.swift in Sources */,
 				8ECEF2D31DF01DAB00CF1BB3 /* Utils.swift in Sources */,
 				8EB679DF1DF5C8B50035D8E9 /* IntroViewController.swift in Sources */,

@@ -17,6 +17,9 @@ class DayPartViewController: UIViewController {
     @IBAction func beginingChanged(_ sender: Any) {
         updateDuration()
     }
+    @IBAction func backTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func endingChanged(_ sender: Any) {
         updateDuration()
     }
@@ -63,8 +66,7 @@ class DayPartViewController: UIViewController {
         updateDuration()
 
         
-        showDayPart()
-    
+        self.dismiss(animated: true, completion: nil)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

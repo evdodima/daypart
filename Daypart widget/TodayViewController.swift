@@ -62,7 +62,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func updateDayPart(){
         let beginingTime = userDef?.object(forKey: "beginingTime") as! Date
         let dayPart = countDayPart()
-        let progressColor = UIColor(hue: CGFloat((170.0/360.0) * (dayPart / 100.0)), saturation: 0.46, brightness: 0.85, alpha: 1.0)
+        let progressColor = UIColor(hue: CGFloat((120.0/360.0) * (dayPart / 100.0)), saturation: 0.46, brightness: 0.85, alpha: 1.0)
         
 
         var labelText = "WTF"
