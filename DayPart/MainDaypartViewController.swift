@@ -11,7 +11,6 @@ import UIKit
 class MainDaypartViewController: UIViewController {
 
     
-    let userDef = UserDefaults(suiteName: "group.dayPart")
     var updateTimer: Timer? = nil
     
     @IBOutlet weak var progressView: UIView!

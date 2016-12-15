@@ -16,12 +16,15 @@ class DayPartViewController: UIViewController {
 
     @IBAction func beginingChanged(_ sender: Any) {
         updateDuration()
+        showPurchasePage()
+        
     }
     @IBAction func backTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func endingChanged(_ sender: Any) {
         updateDuration()
+        showPurchasePage()
     }
     func updateDuration(){
         durationLabel.text = countInterval(endingDate: endingDatePicker.date.asTodayDate(), beginingDate: beginingDatePicker.date.asTodayDate())
@@ -36,8 +39,8 @@ class DayPartViewController: UIViewController {
             userDef?.set(endingDatePicker.date, forKey: "endingTime")
         }
         
-        beginingDatePicker.minuteInterval = 1
-        endingDatePicker.minuteInterval = 1
+        beginingDatePicker.minuteInterval = 15
+        endingDatePicker.minuteInterval = 15
         updateDuration()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -50,6 +53,11 @@ class DayPartViewController: UIViewController {
         updateDuration()
     }
     
+    func showPurchasePage(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "purchase")
+        self.present(controller, animated: true, completion: nil)
+    }
     func showDayPart(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "MainDaypart")

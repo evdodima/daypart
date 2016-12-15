@@ -10,7 +10,6 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-    let userDef = UserDefaults(suiteName: "group.dayPart")
     var updateTimer: Timer? = nil
     
     @IBOutlet weak var dayPartLabel: UILabel!

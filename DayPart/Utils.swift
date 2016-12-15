@@ -11,6 +11,15 @@ import UIKit
 
 let userDef = UserDefaults(suiteName: "group.dayPart")
 
+extension UIViewController{
+    func showInfoAlert(_ alert: UIAlertController) {
+        alert.addAction(UIAlertAction(title: "Okay", style: .cancel) { action in
+            alert.dismiss(animated: true)
+        })
+        present(alert, animated: true, completion: nil)
+    }
+}
+
 
 func countDayPart()-> Double {
     let calendar = Calendar(identifier: .gregorian)

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8E2535261E0053D900E13E7C /* UpgradeToProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2535251E0053D900E13E7C /* UpgradeToProViewController.swift */; };
+		8E5E6D041E0132C20039628E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E5E6D031E0132C20039628E /* StoreKit.framework */; };
+		8E5E6D061E01D2A90039628E /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5E6D051E01D2A90039628E /* AppStore.swift */; };
 		8EB679DF1DF5C8B50035D8E9 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB679DE1DF5C8B50035D8E9 /* IntroViewController.swift */; };
 		8ECEF2A91DEED99B00CF1BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECEF2A81DEED99B00CF1BB3 /* AppDelegate.swift */; };
 		8ECEF2AB1DEED99B00CF1BB3 /* DayPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECEF2AA1DEED99B00CF1BB3 /* DayPartViewController.swift */; };
@@ -49,6 +51,8 @@
 
 /* Begin PBXFileReference section */
 		8E2535251E0053D900E13E7C /* UpgradeToProViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeToProViewController.swift; sourceTree = "<group>"; };
+		8E5E6D031E0132C20039628E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		8E5E6D051E01D2A90039628E /* AppStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		8EB679DE1DF5C8B50035D8E9 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		8ECEF2A51DEED99B00CF1BB3 /* DayPart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayPart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ECEF2A81DEED99B00CF1BB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E5E6D041E0132C20039628E /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +125,7 @@
 				8EB679DE1DF5C8B50035D8E9 /* IntroViewController.swift */,
 				8EE3862B1DFE8F5900B27D16 /* MainDaypartViewController.swift */,
 				8E2535251E0053D900E13E7C /* UpgradeToProViewController.swift */,
+				8E5E6D051E01D2A90039628E /* AppStore.swift */,
 			);
 			path = DayPart;
 			sourceTree = "<group>";
@@ -127,6 +133,7 @@
 		8ECEF2BF1DEED9BE00CF1BB3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E5E6D031E0132C20039628E /* StoreKit.framework */,
 				8ECEF2C01DEED9BE00CF1BB3 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -200,6 +207,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 						};
 					};
 					8ECEF2BD1DEED9BE00CF1BB3 = {
@@ -264,6 +274,7 @@
 				8E2535261E0053D900E13E7C /* UpgradeToProViewController.swift in Sources */,
 				8ECEF2A91DEED99B00CF1BB3 /* AppDelegate.swift in Sources */,
 				8ECEF2D31DF01DAB00CF1BB3 /* Utils.swift in Sources */,
+				8E5E6D061E01D2A90039628E /* AppStore.swift in Sources */,
 				8EB679DF1DF5C8B50035D8E9 /* IntroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
