@@ -11,17 +11,26 @@ import StoreKit
 
 class UpgradeToProViewController: UIViewController {
     
-    var appStore: AppStore! = AppStore()
-
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var upgradeButton: UIButton!
     @IBOutlet weak var laterButton: UIButton!
+    @IBOutlet weak var activityView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    let appStore = AppDelegate.appStore
+
+    
     
     var buyTapped = false
     
     override func viewDidLoad() {
-        appStore.requestProductsSilently()
         super.viewDidLoad()
+        
+        upgradeButton.titleLabel?.minimumScaleFactor = 0.1;
+        upgradeButton.titleLabel?.numberOfLines = 0;
+        upgradeButton.titleLabel?.adjustsFontSizeToFitWidth = true;
+        upgradeButton.titleLabel?.lineBreakMode = .byClipping;
+
         
         infoView.clipsToBounds = true
         infoView.layer.cornerRadius = 7
@@ -31,17 +40,77 @@ class UpgradeToProViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.purchasingNotification(notification:)),
+                                               name: appStore.purchasingNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.didPurchaseNotification(notification:)),
+                                               name: appStore.purchasedNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.didFailPurchaseNotification(notification:)),
+                                               name: appStore.failPurchaseNotification, object: nil)
+        if let pro = AppStore.proUserProduct {
+            updateUI(product: pro)
+        } else {
+            requestProduct()
+        }
+        activityView.isHidden = true
+    }
+    
+    
+    func purchasingNotification(notification: Notification) {
+        print("purchasingNotification")
+        activityView.isHidden = false
+        activityIndicator.startAnimating()
+    }
+    
+    func didPurchaseNotification(notification: Notification) {
+        print("didPurchaseNotification")
+        activityView.isHidden = true
+        activityIndicator.stopAnimating()
+        buyTapped = false
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func didFailPurchaseNotification(notification: Notification) {
+        
+        if let msg = notification.userInfo?["msg"] as? String {
+            showInfoAlert(UIAlertController(title: "Something went wrong",
+                                            message: msg, preferredStyle: .alert))
+        }
+        buyTapped = false
+        activityView.isHidden = true
+        activityIndicator.stopAnimating()
+    }
 
     @IBAction func laterPressed(_ sender: Any) {
+        buyTapped = false
         self.dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func restorePressed(_ sender: Any) {
+        print("restorePressed")
+            activityView.isHidden = false
+            activityIndicator.startAnimating()
             appStore.restorePurchases()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            self.stopTimer()
+        }
+    }
+    
+    func stopTimer(){
+        activityView.isHidden = true
+        activityIndicator.stopAnimating()
     }
     
     @IBAction func upgradePressed(_ sender: Any) {
+        print("upgradePressed")
         if appStore.canMakePayments {
             if let proUser = AppStore.proUserProduct {
                 appStore.buy(product: proUser)
@@ -85,6 +154,10 @@ class UpgradeToProViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
     /*
     // MARK: - Navigation

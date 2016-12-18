@@ -51,6 +51,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBAction func widgetPressed(_ sender: UIButton) {
         let url: URL = URL(string:"DayPart://")!
+        userDef?.set(true, forKey: "fromWidget")
         self.extensionContext?.open(url, completionHandler: nil)
     }
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {

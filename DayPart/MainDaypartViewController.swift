@@ -61,6 +61,12 @@ class MainDaypartViewController: UIViewController {
                 if userDef?.object(forKey: "IntroAppeared") == nil {
                     showIntro()
                 }
+//        if let fromWidget = userDef?.bool(forKey: "fromWidget"){
+//            if fromWidget {
+//                showDayPart()
+//                userDef?.set(false, forKey: "fromWidget")
+//            }
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -107,7 +113,9 @@ class MainDaypartViewController: UIViewController {
     
     func changeProgress(daypart: Float){
         let viewHeight = self.view.frame.height
-        progressHeight.constant = viewHeight * CGFloat(daypart/100)
+        if daypart > 0 {
+            progressHeight.constant = viewHeight * CGFloat(daypart/100)
+        }
         self.view!.layoutIfNeeded()
 
     }

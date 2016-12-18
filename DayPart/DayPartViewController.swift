@@ -13,18 +13,27 @@ class DayPartViewController: UIViewController {
     @IBOutlet weak var beginingDatePicker: UIDatePicker!
     @IBOutlet weak var endingDatePicker: UIDatePicker!
     @IBOutlet weak var durationLabel: UILabel!
+    let appStore = AppDelegate.appStore
+
+
 
     @IBAction func beginingChanged(_ sender: Any) {
+        if !appStore.isProUser {
+            showPurchasePage()
+        }
         updateDuration()
-        showPurchasePage()
+
         
     }
     @IBAction func backTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func endingChanged(_ sender: Any) {
+        if !appStore.isProUser {
+            showPurchasePage()
+        }
         updateDuration()
-        showPurchasePage()
+
     }
     func updateDuration(){
         durationLabel.text = countInterval(endingDate: endingDatePicker.date.asTodayDate(), beginingDate: beginingDatePicker.date.asTodayDate())

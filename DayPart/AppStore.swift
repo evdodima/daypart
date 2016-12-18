@@ -85,7 +85,6 @@ extension AppStore: SKPaymentTransactionObserver {
     
     private func restoreTransaction(transaction: SKPaymentTransaction) {
         guard let productIdentifier = transaction.original?.payment.productIdentifier else { return }
-        
         deliverPurchaseNotificatioForIdentifier(identifier: productIdentifier)
         queue.finishTransaction(transaction)
     }
@@ -95,12 +94,9 @@ extension AppStore: SKPaymentTransactionObserver {
         if (transaction.error as! NSError).code != SKError.paymentCancelled.rawValue {
             msg = transaction.error?.localizedDescription ?? "Unknown Error"
         }
-        
-        NotificationCenter.default.post(name: failPurchaseNotification,
-                                        object: transaction.transactionIdentifier,
-                                        userInfo: ["msg": msg!])
         print("Transaction Error: \(msg)")
-        
+        NotificationCenter.default.post(name: failPurchaseNotification,
+                                        object: transaction.transactionIdentifier)
         queue.finishTransaction(transaction)
     }
     
@@ -146,6 +142,7 @@ extension AppStore {
     }
     
     func buy(product: SKProduct) {
+        print("appstore buy")
         queue.add(SKPayment(product: product))
     }
     
@@ -162,7 +159,7 @@ extension AppStore {
         numberFormatter.formatterBehavior = .behavior10_4
         numberFormatter.numberStyle = .currency
         numberFormatter.locale = product.priceLocale
-        return numberFormatter.string(from: product.price)
+        return numberFormatter.string(from: product.price)?.replacingOccurrences(of: ",00", with: "")
     }
     
     var isProUser: Bool {
@@ -174,5 +171,4 @@ extension AppStore {
             userDef?.synchronize()
         }
     }
-    
 }
