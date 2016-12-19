@@ -85,8 +85,8 @@
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWU-ug-dVI">
                                         <rect key="frame" x="160" y="0.0" width="160" height="212.5"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="502313400.91897798">
-                                            <!--2016-12-01 19:30:00 +0000-->
+                                        <date key="date" timeIntervalSinceReferenceDate="502317000.91897798">
+                                            <!--2016-12-01 20:30:00 +0000-->
                                         </date>
                                         <locale key="locale" localeIdentifier="ru_RU"/>
                                         <connections>
@@ -111,8 +111,8 @@
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3M-lG-abM">
                                         <rect key="frame" x="160" y="0.0" width="160" height="203.5"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="502255800.91897798">
-                                            <!--2016-12-01 03:30:00 +0000-->
+                                        <date key="date" timeIntervalSinceReferenceDate="502259400.91897798">
+                                            <!--2016-12-01 04:30:00 +0000-->
                                         </date>
                                         <locale key="locale" localeIdentifier="ru_RU"/>
                                         <connections>

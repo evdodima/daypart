@@ -93,6 +93,7 @@ class MainDaypartViewController: UIViewController {
             willStartLabel.isHidden = false
             willStartTime.isHidden = false
             dayPartLabel.isHidden = true
+            progressView.backgroundColor = .clear
             
         } else {
             labelText = String(dayPart) + "%"
