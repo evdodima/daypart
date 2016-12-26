@@ -237,7 +237,6 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQ4-6a-ZTV">
                                 <rect key="frame" x="282" y="37" width="22" height="22"/>
-                                <color key="tintColor" red="0.20953375101089478" green="0.28282922506332397" blue="0.27080452442169189" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="showIntro:" destination="69D-ib-pZs" eventType="touchUpInside" id="qil-iv-1Ek"/>
                                 </connections>
@@ -249,10 +248,7 @@
                                     <constraint firstAttribute="width" constant="90" id="Rbv-bJ-wRk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="tintColor" red="0.20953375101089478" green="0.28282922506332397" blue="0.27080452442169189" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="My day">
-                                    <color key="titleColor" red="0.31731352210044861" green="0.32047745585441589" blue="0.37851554155349731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
+                                <state key="normal" title="My day"/>
                                 <connections>
                                     <action selector="editDay:" destination="69D-ib-pZs" eventType="touchUpInside" id="Hs9-ZA-hdh"/>
                                 </connections>
